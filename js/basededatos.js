@@ -21,9 +21,8 @@ async function leerRegistros(datosRequeridos) {
     alert(ajaxrequest.readyState + "--" + ajaxrequest.status);
     if (ajaxrequest.readyState === 4 && ajaxrequest.status === 200) {
       let datosLeidos = ajaxrequest.response
-      let registrosLeidos=JSON.parse(datosLeidos)
       if (datosLeidos) {
-        //mostrarConsulta(datosLeidos)
+        mostrarConsulta(datosLeidos)
       }
     }
   }
@@ -34,4 +33,42 @@ async function leerRegistros(datosRequeridos) {
     'application/x-www-form-urlencoded',
   )
   ajaxrequest.send(envio)
+}
+
+//--------------------------------------------------------------------------------------------------
+//Muestra la consulta en la interfaz.
+function mostrarConsulta(datos) {
+  let lista = JSON.parse(datos)
+  if (lista != null) {
+    rellenarCampos(lista[0])
+    hayDatosBD = true
+    borrado = false
+  } else {
+    if (!borrado) {
+      if (siguiente) {
+        mostrarVentanaEmergente('No existe un registro posterior.', 'info')
+        siguiente = false
+      } else if (anterior) {
+        mostrarVentanaEmergente('No existe un registro anterior.', 'info')
+        anterior = false
+      } else if (!hayDatosBD) {
+        limpiarCampos()
+        hayDatosBD = false
+        mostrarVentanaEmergente(
+          'No existen registros en la base de datos.',
+          'info',
+        )
+      }
+    } else {
+      if (lista == null) {
+        limpiarCampos()
+        hayDatosBD = false
+        mostrarVentanaEmergente(
+          'No existen registros en la base de datos.',
+          'info',
+        )
+      }
+      borrado = false
+    }
+  }
 }

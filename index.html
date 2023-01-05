@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparar examen</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeNRBEIWYeWRRvY8On_9pkSD1_J_zLykQ&libraries=geometry"></script>
+    <script src="./js/basededatos.js"></script>
+    <script src="./js/mapas.js" defer></script>
+    <script src="./js/index.js"defer></script>
+</head>
+
+<body>
+    <!-- Otra forma de temporizador setInterval-->
+    <h2>Temporizador setInterval </h2>
+    <label id="cajavalor">Valor del intervalo:</label><br>
+    <input id="movimiento" type="range" min="500" max="180000" style="width: auto" />
+
+    <!-- Otra forma de temporizador setTimeout -->
+    <h2>Otra forma de temporizador setTimeout</h2>
+    <p style="font-family:fantasy " id="tiempo"></p>
+
+    <h2>Trazar línea entre dos marcadores del mapa</h2>
+
+    <h2>Distancia entre dos marcadores</h2>
+    <p id="distaciaMarcadores">Distancia : </p>
+    <div class="map_canvas" id="map_canvas" style="width: 100%;height: 400px;background-color: bisque;">
+    </div>
+</body>
+
+</html>

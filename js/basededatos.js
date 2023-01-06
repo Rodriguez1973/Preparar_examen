@@ -18,11 +18,11 @@ async function leerRegistros(datosRequeridos) {
   )
  
   ajaxrequest.onreadystatechange = async function () {
-    alert(ajaxrequest.readyState + "--" + ajaxrequest.status);
+    //alert(ajaxrequest.readyState + "--" + ajaxrequest.status);
     if (ajaxrequest.readyState === 4 && ajaxrequest.status === 200) {
       let datosLeidos = ajaxrequest.response
       if (datosLeidos) {
-        mostrarConsulta(datosLeidos)
+        mostrarRegistro(JSON.parse(datosLeidos))
       }
     }
   }
@@ -36,39 +36,14 @@ async function leerRegistros(datosRequeridos) {
 }
 
 //--------------------------------------------------------------------------------------------------
-//Muestra la consulta en la interfaz.
-function mostrarConsulta(datos) {
-  let lista = JSON.parse(datos)
-  if (lista != null) {
-    rellenarCampos(lista[0])
-    hayDatosBD = true
-    borrado = false
-  } else {
-    if (!borrado) {
-      if (siguiente) {
-        mostrarVentanaEmergente('No existe un registro posterior.', 'info')
-        siguiente = false
-      } else if (anterior) {
-        mostrarVentanaEmergente('No existe un registro anterior.', 'info')
-        anterior = false
-      } else if (!hayDatosBD) {
-        limpiarCampos()
-        hayDatosBD = false
-        mostrarVentanaEmergente(
-          'No existen registros en la base de datos.',
-          'info',
-        )
-      }
-    } else {
-      if (lista == null) {
-        limpiarCampos()
-        hayDatosBD = false
-        mostrarVentanaEmergente(
-          'No existen registros en la base de datos.',
-          'info',
-        )
-      }
-      borrado = false
-    }
+//Muestra registro de la interfaz.
+function mostrarRegistro(registrosLeidos) {
+  for (i = 0; i < registrosLeidos.length; i++) {
+  // alert(arrayDatosIot[i].latitud)
+  let opcion = document.createElement("option");
+  opcion.value = registrosLeidos[i].latitud+ "," + registrosLeidos[i].longitud
+  opcion.text = registrosLeidos[i].nombre
+  // Añade a la select <select id=”elementos”></select> la option creada
+  document.getElementById("sElementos").appendChild(opcion)
   }
-}
+  }

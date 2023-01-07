@@ -2,7 +2,7 @@ let mapa //Referencia del mapa.
 let latitud = 41.670141205551865 //Latitud de inicio del centro del mapa.
 let longitud = -3.689933230224045 //Longitud de inicio del centro del mapa.
 let marcadores = [] //Marcadores de posición del mapa.
-let zoom = 18 //Zoom del mapa.
+let zoom = 14 //Zoom del mapa.
 
 //--------------------------------------------------------------------------------------------------
 //Representa el mapa en el contenedor de la interfaz.
@@ -34,27 +34,27 @@ function distanciaEntre2Puntos(posicionInicial, posicionFinal) {
 //Referencia al icono del semáforo rojo. Define sus propiedades.
 let semaforoR = {
   url: './imagenes/r.jpg', //Imagen del marcador de posición.
-  scaledSize: new google.maps.Size(50, 50), //Tamaño escala.
+  scaledSize: new google.maps.Size(30, 30), //Tamaño escala.
   origin: new google.maps.Point(0, 0), //Origen imagen.
-  anchor: new google.maps.Point(25, 50), //Punto de anclaje
+  anchor: new google.maps.Point(15,15 ), //Punto de anclaje
 }
 
 //--------------------------------------------------------------------------------------------------
 //Referencia al icono del semáforo rojo, amarillo y verde. Define sus propiedades.
 let semaforoRAV = {
   url: './imagenes/rav.jpg', //Imagen del marcador de posición.
-  scaledSize: new google.maps.Size(50, 50), //Tamaño escala.
+  scaledSize: new google.maps.Size(30, 30), //Tamaño escala.
   origin: new google.maps.Point(0, 0), //Origen imagen.
-  anchor: new google.maps.Point(25, 50), //Punto de anclaje
+  anchor: new google.maps.Point(15, 15), //Punto de anclaje
 }
 
 //--------------------------------------------------------------------------------------------------
 //Referencia al icono del semáforo verde. Define sus propiedades.
 let semaforoV = {
   url: './imagenes/v.jpg', //Imagen del marcador de posición.
-  scaledSize: new google.maps.Size(50, 50), //Tamaño escala.
+  scaledSize: new google.maps.Size(30, 30), //Tamaño escala.
   origin: new google.maps.Point(0, 0), //Origen imagen.
-  anchor: new google.maps.Point(25, 50), //Punto de anclaje
+  anchor: new google.maps.Point(15, 15), //Punto de anclaje
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -15,8 +15,17 @@
 
 <body>
     <select id="sElementos"></select>
-    <select id="sTipo"></select>
-    <input id="iDistancia" type="range" min="1" max="1000">
+    <select id="sTipo" name="sTipo">
+        <option value="Caudal">Caudal</option>
+        <option value="Contaminación">Contaminación</option>
+        <option value="Humedad">Humedad</option>
+        <option value="Luminosidad">Luminosidad</option>
+        <option value="Presion">Presión</option>
+        <option value="Temperatura">Temperatura</option>
+        <option value="Viento">Viento</option>
+        <option value="Otro">Otro</option>
+      </select>
+    <input id="iDistancia" type="number" min="0" value="0">
     <div class="map_canvas" id="map_canvas" style="width: 100%;height: 400px;background-color: bisque;">
     </div>    
 </body>

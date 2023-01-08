@@ -10,13 +10,16 @@ header('Access-Control-Allow-Headers: Content-Type');
 include('conexionBd.php');
 //Recibe el array con los datos JSON.
 $condicion=$_POST['Envio'];
+$condicion= str_replace("\\","", $condicion);
+//No utilizado por ser una consulta simple, pero en $array existirian los datos para la consulta.
+$array=explode(",",$condicion);   
 //Si hay error en la conexión.
 if ($connect->connect_errno) {
     echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 //Si no hay error en la conexión.
 } else{
     //Consulta a realizar a la base de datos.
-    $sql = "SELECT * FROM IOT_JoseantonioR where tipo='". $condicion . "';";
+    $sql = "SELECT * FROM IOT_JoseantonioR where tipo=". $condicion;
     //echo $sql;
     //Realiza la consulta contra la base de datos.
     $resultado = mysqli_query($connect, $sql);

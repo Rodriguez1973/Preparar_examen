@@ -89,7 +89,8 @@ async function leerRegistrosPorTipo(tipo) {
     }
   }
 
-  let envio = "Envio="+tipo
+  let envio = "Envio='"+tipo+"'"
+  console.log(envio)
   ajaxrequest.setRequestHeader(
     'Content-type',
     'application/x-www-form-urlencoded',
